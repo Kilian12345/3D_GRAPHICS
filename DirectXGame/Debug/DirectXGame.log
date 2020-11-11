@@ -1,2 +1,5 @@
-﻿  Window.cpp
+﻿  AppWindow.cpp
+  Window.cpp
+  main.cpp
+  Generating Code...
   DirectXGame.vcxproj -> D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.exe
