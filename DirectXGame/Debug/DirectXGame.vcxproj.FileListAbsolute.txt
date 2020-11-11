@@ -1,0 +1,2 @@
+D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.exe
+D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.pdb
