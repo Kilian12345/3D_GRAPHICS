@@ -22,11 +22,14 @@
     <Filter Include="GameEngine\GraphicsEngine\VertexBuffer">
       <UniqueIdentifier>{0556cf11-bfdb-419b-ad89-c6016d9d44be}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\VertexShader">
+    <Filter Include="GameEngine\GraphicsEngine\VertexShader">
       <UniqueIdentifier>{50d3d6e1-bbb6-4fc0-b4ec-986f5f2447e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameEngine\PixelShader">
+    <Filter Include="GameEngine\GraphicsEngine\PixelShader">
       <UniqueIdentifier>{628d505c-4e4a-40f6-b471-7a0e3360b477}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameEngine\GraphicsEngine\ConstantBuffer">
+      <UniqueIdentifier>{473b2f4f-d475-400c-a432-e634d9db6517}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,10 +55,13 @@
       <Filter>GameEngine\GraphicsEngine\VertexBuffer</Filter>
     </ClCompile>
     <ClCompile Include="VertexShader.cpp">
-      <Filter>GameEngine\VertexShader</Filter>
+      <Filter>GameEngine\GraphicsEngine\VertexShader</Filter>
     </ClCompile>
     <ClCompile Include="PixelShader.cpp">
-      <Filter>GameEngine\PixelShader</Filter>
+      <Filter>GameEngine\GraphicsEngine\PixelShader</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantBuffer.cpp">
+      <Filter>GameEngine\GraphicsEngine\ConstantBuffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,10 +84,13 @@
       <Filter>GameEngine\GraphicsEngine\VertexBuffer</Filter>
     </ClInclude>
     <ClInclude Include="VertexShader.h">
-      <Filter>GameEngine\VertexShader</Filter>
+      <Filter>GameEngine\GraphicsEngine\VertexShader</Filter>
     </ClInclude>
     <ClInclude Include="PixelShader.h">
-      <Filter>GameEngine\PixelShader</Filter>
+      <Filter>GameEngine\GraphicsEngine\PixelShader</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantBuffer.h">
+      <Filter>GameEngine\GraphicsEngine\ConstantBuffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
