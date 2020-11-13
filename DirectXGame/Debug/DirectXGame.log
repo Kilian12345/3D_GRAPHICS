@@ -1,7 +1,2 @@
 ﻿  AppWindow.cpp
-  DeviceContext.cpp
-D:\GIT\3D_GRAPHICS\DirectXGame\DeviceContext.cpp(42,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-D:\GIT\3D_GRAPHICS\DirectXGame\DeviceContext.cpp(43,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
-  VertexShader.cpp
-  Generating Code...
   DirectXGame.vcxproj -> D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.exe
