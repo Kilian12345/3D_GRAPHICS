@@ -12,6 +12,9 @@ class AppWindow : public Window
 {
 public:
 	AppWindow();
+
+	void updateQuadPosition();
+
 	~AppWindow();
 
 	// Inherited via Window
@@ -26,8 +29,12 @@ private:
 	PixelShader* m_ps;
 	ConstantBuffer* m_cb;
 
-	unsigned long m_old_time = 0;
-	float m_delta_time = 0;
-	float m_angle = 0;
+private :
+	float m_old_delta;
+	float m_new_delta;
+	float m_delta_time;
+
+	float m_delta_pos;
+	float m_delta_scale;
 };
 

@@ -1,4 +1,17 @@
 ﻿  AppWindow.cpp
+D:\GIT\3D_GRAPHICS\DirectXGame\AppWindow.cpp(31,28): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\AppWindow.cpp(46,113): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\AppWindow.cpp(148,30): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+  ConstantBuffer.cpp
+  DeviceContext.cpp
+D:\GIT\3D_GRAPHICS\DirectXGame\DeviceContext.cpp(44,13): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\DeviceContext.cpp(45,14): warning C4244: '=': conversion from 'UINT' to 'FLOAT', possible loss of data
+  GraphicsEngine.cpp
   main.cpp
+  PixelShader.cpp
+  SwapChain.cpp
+  VertexBuffer.cpp
+  VertexShader.cpp
+  Window.cpp
   Generating Code...
   DirectXGame.vcxproj -> D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.exe
