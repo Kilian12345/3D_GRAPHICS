@@ -17,6 +17,18 @@ LRESULT CALLBACK WndProck (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			window->onCreate();
 			break;
 		}
+		case WM_SETFOCUS:
+		{
+			//Event fired when the window is Focused
+			window->onFocus();
+			break;
+		}
+		case WM_KILLFOCUS:
+		{
+			//Event fired when the window is not Focused
+			window->onKillFocus();
+			break;
+		}
 		case WM_DESTROY :
 		{
 			//Event fired when the window will be destroyed
@@ -24,6 +36,7 @@ LRESULT CALLBACK WndProck (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 			::PostQuitMessage(0);
 			break;
 		}
+
 		default :
 			return ::DefWindowProc(hwnd, msg, wparam, lparam);
 	}
@@ -129,6 +142,14 @@ void Window::onUpdate()
 void Window::onDestroy()
 {
 	m_is_run = false;
+}
+
+void Window::onFocus()
+{
+}
+
+void Window::onKillFocus()
+{
 }
 
 Window::~Window()
