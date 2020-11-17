@@ -1,50 +1,50 @@
 #include "Window.h"
+#include <exception>
 
-Window* window = NULL;
+//Window* window = NULL;
 
-Window::Window()
-{
-}
-
-LRESULT CALLBACK WndProck (HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+LRESULT CALLBACK WndProck(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
 	switch (msg)
 	{
-		case WM_CREATE:
-		{
-			// Event fired when the Window will be created
-			window->setHWND(hwnd);
-			window->onCreate();
-			break;
-		}
-		case WM_SETFOCUS:
-		{
-			//Event fired when the window is Focused
-			window->onFocus();
-			break;
-		}
-		case WM_KILLFOCUS:
-		{
-			//Event fired when the window is not Focused
-			window->onKillFocus();
-			break;
-		}
-		case WM_DESTROY :
-		{
-			//Event fired when the window will be destroyed
-			window->onDestroy();
-			::PostQuitMessage(0);
-			break;
-		}
+	case WM_CREATE:
+	{
 
-		default :
-			return ::DefWindowProc(hwnd, msg, wparam, lparam);
+		break;
+	}
+	case WM_SETFOCUS:
+	{
+		//Event fired when the window is Focused
+		Window* window = (Window*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+		if(window) window->onFocus();
+		break;
+	}
+	case WM_KILLFOCUS:
+	{
+		//Event fired when the window is not Focused
+		Window* window = (Window*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+		window->onKillFocus();
+		break;
+	}
+	case WM_DESTROY:
+	{
+		//Event fired when the window will be destroyed
+		Window* window = (Window*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
+		window->onDestroy();
+		::PostQuitMessage(0);
+		break;
+	}
+
+	default:
+		return ::DefWindowProc(hwnd, msg, wparam, lparam);
 	}
 
 	return NULL;
 }
 
-bool Window::init()
+
+
+Window::Window()
 {
 	WNDCLASSEX wc;
 	wc.cbClsExtra = NULL;
@@ -62,19 +62,19 @@ bool Window::init()
 
 
 	if (!::RegisterClassEx(&wc)) // IF the registration of class will fail, the function will return false
-		return false;
+		throw std::exception("RegisterClassEx has failed");
 
 
-	if (!window)
-		window = this;
+	/*if (!window)
+		window = this;*/
 
 	//Creation of the window
-	m_hwnd=::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MyWindowClass", L"Kilian First Window (moment cultissime)",
-		WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768, NULL, NULL, NULL, NULL);
+	m_hwnd = ::CreateWindowEx(WS_EX_OVERLAPPEDWINDOW, L"MyWindowClass", L"Kilian First Window (moment cultissime)",
+		WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 1024, 768, NULL, NULL, NULL, NULL);
 
 	//if the creation fail return false
 	if (!m_hwnd)
-		return false;
+		throw std::exception("CreateWindowEx has failed");
 
 	//show up the window
 	::ShowWindow(m_hwnd, SW_SHOW);
@@ -83,15 +83,23 @@ bool Window::init()
 
 	//set this flag to true to indicate that the window is initialized and running
 	m_is_run = true;
-
-	return true;
 }
+
+
 
 bool Window::broadcast()
 {
 	MSG msg;
 
-	window->onUpdate();
+	if (!this->m_is_init)
+	{
+		SetWindowLongPtr(m_hwnd, GWLP_USERDATA, (LONG_PTR)this);
+		this->onCreate();
+
+		this->m_is_init = true;
+	}
+
+	this->onUpdate();
 
 	while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) > 0)
 	{
@@ -99,22 +107,17 @@ bool Window::broadcast()
 		DispatchMessage(&msg);
 	}
 
-	Sleep(0);
-
-	return true;
-}
-
-bool Window::release()
-{
-	//Destroy the window
-	if (!::DestroyWindow(m_hwnd))
-		return false;
+	Sleep(1);
 
 	return true;
 }
 
 bool Window::isRun()
 {
+	if (m_is_run)
+	{
+		broadcast();
+	}
 	return m_is_run;
 }
 
@@ -124,11 +127,6 @@ RECT Window::getClientWindowRect()
 	::GetClientRect(this->m_hwnd, &rc);
 
 	return rc;
-}
-
-void Window::setHWND(HWND hwnd)
-{
-	this->m_hwnd = hwnd;
 }
 
 void Window::onCreate()
@@ -154,4 +152,8 @@ void Window::onKillFocus()
 
 Window::~Window()
 {
+
+	//Destroy the window
+	/*if (!::DestroyWindow(m_hwnd))
+		throw std::exception("DestroyWindow has failed");*/
 }
