@@ -1,2 +1,27 @@
-﻿  Window.cpp
-  DirectXGame.vcxproj -> D:\GIT\3D_GRAPHICS\DirectXGame\Debug\DirectXGame.exe
+﻿  AppWindow.cpp
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(101,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(102,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(103,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(104,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\AppWindow.cpp(31,28): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\AppWindow.cpp(287,30): warning C4244: '=': conversion from 'DWORD' to 'float', possible loss of data
+  ConstantBuffer.cpp
+  DeviceContext.cpp
+  GraphicsEngine.cpp
+  main.cpp
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(101,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(102,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(103,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\GIT\3D_GRAPHICS\DirectXGame\Matrix4x4.h(104,44): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  RenderSystem.cpp
+  Resource.cpp
+  ResourceManager.cpp
+  The contents of <filesystem> are available only with C++17 or later.
+D:\GIT\3D_GRAPHICS\DirectXGame\ResourceManager.cpp(15,35): error C3083: 'filesystem': the symbol to the left of a '::' must be a type
+D:\GIT\3D_GRAPHICS\DirectXGame\ResourceManager.cpp(15,47): error C2039: 'absolute': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\memory(28): message : see declaration of 'std'
+D:\GIT\3D_GRAPHICS\DirectXGame\ResourceManager.cpp(15,55): error C3861: 'absolute': identifier not found
+  Texture.cpp
+  TextureManager.cpp
+  VertexBuffer.cpp
+  Generating Code...
